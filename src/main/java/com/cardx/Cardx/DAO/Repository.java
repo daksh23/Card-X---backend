@@ -20,6 +20,10 @@ public class Repository implements RepositoryInterface {
                 "where 1=1 AND sm.user_id=ur.user_id AND pr.user_id=ur.user_id AND pr.user_id=?";
     }
 
+    public String getAllEmails(){
+        return "select email from userdetailsrequest ";
+    }
+
     public String getAllUserId(){
         return "select user_id from userdetailsrequest ";
     }
@@ -36,7 +40,6 @@ public class Repository implements RepositoryInterface {
 
     @Transactional
     public String addEvent() {
-        return "INSERT INTO eventrequest (event_id, stage, user_id, json_data, date) " +
-                "VALUES ( ?, ?, ?, ?, ? )";
+        return "INSERT INTO eventrequest ( stage, user_id, json_data, event_date) VALUES ( ?, ?, ?, ? )";
     }
 }

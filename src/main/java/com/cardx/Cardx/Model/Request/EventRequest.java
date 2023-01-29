@@ -27,8 +27,8 @@ public class EventRequest {
     @JsonProperty("json_data")
     private String json_data;
 
-    @JsonProperty("date")
-    private Date date;
+    @JsonProperty("event_date")
+    private String date;
 
 
 }

@@ -47,4 +47,10 @@ public class RowMapperService {
               return user;
        };
 
+       public final RowMapper< UserDetailsRequest> rowEmails = (rs, rowNum) -> {
+              UserDetailsRequest user = new UserDetailsRequest();
+              user.setUser_email(rs.getString("email"));
+              return user;
+       };
+
 }

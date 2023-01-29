@@ -52,6 +52,12 @@ public class CardxControllers {
         return getCardService.getAllUserId();
     }
 
+    @GetMapping("/user/emails")
+    public List<String> getAllEmails(){
+        return getCardService.getAllEmails();
+    }
+
+
     // Set Data from api call
     @PostMapping("/user/add")
     public ResponseEntity<String> setUserDetails(@RequestBody String userDetails) throws Exception {

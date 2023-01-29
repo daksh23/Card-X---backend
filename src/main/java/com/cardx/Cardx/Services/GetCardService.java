@@ -37,6 +37,12 @@ public class GetCardService {
         return Obj.writeValueAsString(jdbcTemplate.query(sql, rowMapperService.rowMapper, id));
     }
 
+    public List<String> getAllEmails(){
+        String sql = repository.getAllEmails();
+        List<UserDetailsRequest> emails =  jdbcTemplate.query(sql, rowMapperService.rowEmails);
+        return emails.stream().map(UserDetailsRequest::getUser_email).toList();
+    }
+
     public List<Long> getAllUserId(){
         String sql = repository.getAllUserId();
         List<UserDetailsRequest> userIds =  jdbcTemplate.query(sql, rowMapperService.rowUserIds);

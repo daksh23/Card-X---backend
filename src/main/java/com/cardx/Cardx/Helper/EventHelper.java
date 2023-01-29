@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Component
@@ -19,8 +20,14 @@ public class EventHelper {
 
     private JdbcTemplate jdbcTemplate;
 
-    public void logEvent(String stage, int event_id, Long user_id, String json_data, Date date){
+    public EventHelper(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
+    public void logEvent(String stage, Long user_id, String json_data){
         String sql = repository.addEvent();
-        jdbcTemplate.update(sql, event_id, stage, user_id, json_data, date);
+        Date date = new Date(System.currentTimeMillis());
+
+        jdbcTemplate.update(sql, stage, user_id, json_data, date.toString());
     }
 }
