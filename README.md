@@ -1,4 +1,4 @@
-#Welcome to Card-X
+# Welcome to Card-X
 
 ### Card-X is plateform where you can apply degital card or physical card with amazing card designs with your specific name.
 
