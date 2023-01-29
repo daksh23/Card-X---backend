@@ -1,0 +1,61 @@
+package com.cardx.Cardx.Controllers;
+
+import com.cardx.Cardx.Model.Request.UserDetailsRequest;
+import com.cardx.Cardx.Model.Response.QuoteApiResponse;
+import com.cardx.Cardx.Services.GetCardService;
+import com.cardx.Cardx.Services.QuoteApiService;
+import com.cardx.Cardx.Services.UserDetailsService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("cardx/rest/v1")
+public class CardxControllers {
+
+    @Autowired
+    GetCardService getCardService;
+
+    @Autowired
+    QuoteApiService quoteApiService;
+
+    @Autowired
+    UserDetailsService userDetailsService;
+
+    private ObjectMapper objectMapper = new ObjectMapper();
+
+
+    // Extra Endpoints including 3rd Party belows:
+    @GetMapping("/welcome")
+    public ResponseEntity<String> welcome(){
+        return ResponseEntity.ok().body("Welcome to Card-X");
+    }
+
+    @GetMapping("/quotes")
+    public String getQuoteOfTheDay() throws JsonProcessingException {
+        QuoteApiResponse quote = quoteApiService.getQuoteOfTheDay();
+        return objectMapper.writeValueAsString(quote);
+    }
+
+    // Getting Data Apis Endpoint belows
+    @GetMapping("user/{id}")
+    public String getUserById(@PathVariable Long id) throws JsonProcessingException {
+        return getCardService.getUserById(id);
+    }
+
+    @GetMapping("/user/ids")
+    public List<Long> getAllUserId(){
+        return getCardService.getAllUserId();
+    }
+
+    // Set Data from api call
+    @PostMapping("/user/add")
+    public ResponseEntity<String> setUserDetails(@RequestBody String userDetails) throws Exception {
+        String user =  userDetailsService.setUserDetails(userDetails);
+        return ResponseEntity.status(200).body(user);
+    }
+}
