@@ -23,9 +23,9 @@
 5. userdetailsrequest
 
 ### Technologies
-> Java
-> Spring Boot
-> maven
+1. Java
+2. Spring Boot
+3. maven
 
 ### UI
 > ui repo will create soon ( AngularJs )
