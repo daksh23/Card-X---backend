@@ -20,9 +20,6 @@ public class UserDetailsService {
     @Autowired
     EventHelper eventHelper;
 
-    @Autowired
-    RowMapperService rowMapperService;
-
     private JdbcTemplate jdbcTemplate;
 
     private ObjectMapper mapper = new ObjectMapper();
@@ -36,12 +33,12 @@ public class UserDetailsService {
         try{
             String sql = repository.addUserDetails();
             ur = mapper.readValue(userDetails, UserDetailsRequest.class);
-            int ans = jdbcTemplate.update(sql, ur.getUser_id(), ur.getUser_first_name(), ur.getUser_last_name(), ur.getUser_prefer_name(),
-                    ur.getUser_contact(), ur.getUser_email());
+            int ans = jdbcTemplate.update(sql, ur.getUserId(), ur.getUserFirstName(), ur.getUserLastName(), ur.getUserPreferName(),
+                    ur.getUserContact(), ur.getUserEmail());
             if(ans == 1){
                 String jsonData = mapper.writeValueAsString(ur);
                 // Event Log
-                eventHelper.logEvent(Constants.STAGE_USER_DETAILS, ur.getUser_id(), jsonData);
+                eventHelper.logEvent(Constants.STAGE_USER_DETAILS, ur.getUserId(), jsonData);
                return jsonData;
             }else{
                return "we faced some technical issue, please try again after sometime";

@@ -14,23 +14,18 @@ import lombok.Setter;
 public class ProductRequest {
 
     @JsonProperty("product_id")
-    private Long product_id;
+    private Long productId;
 
-    @JsonIgnore
-    private Long user_id;
+    @JsonProperty("user_id")
+    private Long userId;
+
+    @JsonProperty("card_design_id")
+    private String cardDesignId;
 
     @JsonProperty("card_name")
-    private String card_name;
+    private String cardName;
 
     @JsonProperty("type_card")
-    private String type_card;
+    private String typeCard;
 
-    @JsonProperty("design_id")
-    private String card_design_id;
-
-    @JsonProperty("design_name")
-    private String card_design_name;
-
-    @JsonProperty("design_amount")
-    private String card_design_amount;
 }

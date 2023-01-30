@@ -15,22 +15,22 @@ import java.math.BigInteger;
 public class UserDetailsRequest {
 
     @JsonProperty("user_id")
-    private Long user_id;
+    private Long userId;
 
     @JsonProperty("first_name")
-    private String user_first_name;
+    private String userFirstName;
 
     @JsonProperty("last_name")
-    private String user_last_name;
+    private String userLastName;
 
     @JsonProperty("prefer_name")
-    private String user_prefer_name;
+    private String userPreferName;
 
     @JsonProperty("contact")
-    private BigInteger user_contact;
+    private String userContact;
 
     @JsonProperty("email")
-    private String user_email;
+    private String userEmail;
 
     @JsonProperty("social_media")
     SocialMediaRequest socialMediaRequest;

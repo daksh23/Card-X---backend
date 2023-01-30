@@ -16,10 +16,10 @@ import org.springframework.stereotype.Service;
 public class SocialMediaRequest {
 
     @JsonProperty("social_media_id")
-    private String social_media_id;
+    private Long socialMediaId;
 
     @JsonIgnore
-    private Long user_id;
+    private Long userId;
 
     @JsonProperty("snapchat")
     private String snapchat;

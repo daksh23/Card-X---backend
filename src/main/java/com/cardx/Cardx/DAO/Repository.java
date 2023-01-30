@@ -14,10 +14,11 @@ public class Repository implements RepositoryInterface {
     @Override
     public String getUserId(Long id) {
         return "select ur.user_id, ur.first_name, ur.last_name, ur.prefer_name, ur.contact, ur.email, " +
-                "pr.product_id, pr.card_name, pr.type_card, pr.card_design_id, pr.card_design_name, pr.card_design_amount, " +
+                "pr.product_id, pr.card_name, pr.type_card, " +
+                "cd.design_id, cd.design_name, cd.design_amount,  " +
                 "sm.instagram, sm.snapchat, sm.social_media_id " +
-                "from userdetailsrequest ur, productrequest pr, socialmediarequest sm " +
-                "where 1=1 AND sm.user_id=ur.user_id AND pr.user_id=ur.user_id AND pr.user_id=?";
+                "from userdetailsrequest ur, productrequest pr, socialmediarequest sm, carddesign cd " +
+                "where 1=1 AND ur.user_id=? AND ur.user_id=pr.user_id AND ur.user_id=sm.user_id AND pr.card_design_id=cd.design_id";
     }
 
     public String getAllEmails(){
@@ -41,5 +42,11 @@ public class Repository implements RepositoryInterface {
     @Transactional
     public String addEvent() {
         return "INSERT INTO eventrequest ( stage, user_id, json_data, event_date) VALUES ( ?, ?, ?, ? )";
+    }
+
+    @Transactional
+    public String addProductDetails() {
+        return "INSERT INTO productsrequest (product_id, user_id, card_name, type_card, card_design_id, card_design_name, card_design_amount) " +
+                "VALUES ( ?, ?, ?, ?, ?, ?, ? )";
     }
 }

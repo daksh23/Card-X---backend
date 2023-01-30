@@ -3,6 +3,7 @@ package com.cardx.Cardx.Controllers;
 import com.cardx.Cardx.Model.Request.UserDetailsRequest;
 import com.cardx.Cardx.Model.Response.QuoteApiResponse;
 import com.cardx.Cardx.Services.GetCardService;
+import com.cardx.Cardx.Services.ProductService;
 import com.cardx.Cardx.Services.QuoteApiService;
 import com.cardx.Cardx.Services.UserDetailsService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -24,6 +25,9 @@ public class CardxControllers {
     QuoteApiService quoteApiService;
 
     @Autowired
+    ProductService productService;
+
+    @Autowired
     UserDetailsService userDetailsService;
 
     private ObjectMapper objectMapper = new ObjectMapper();
@@ -43,7 +47,7 @@ public class CardxControllers {
 
     // Getting Data Apis Endpoint belows
     @GetMapping("user/{id}")
-    public String getUserById(@PathVariable Long id) throws JsonProcessingException {
+    public ResponseEntity<String> getUserById(@PathVariable Long id) throws JsonProcessingException {
         return getCardService.getUserById(id);
     }
 
@@ -64,4 +68,11 @@ public class CardxControllers {
         String user =  userDetailsService.setUserDetails(userDetails);
         return ResponseEntity.status(200).body(user);
     }
+
+    @PostMapping("/product/add")
+    public ResponseEntity<String> setProduct(@RequestBody String productDetails) throws Exception {
+        String product = productService.setProduct(productDetails);
+        return ResponseEntity.status(200).body(product);
+    }
+
 }
