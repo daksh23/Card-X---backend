@@ -49,4 +49,10 @@ public class Repository implements RepositoryInterface {
         return "INSERT INTO productsrequest (product_id, user_id, card_name, type_card, card_design_id, card_design_name, card_design_amount) " +
                 "VALUES ( ?, ?, ?, ?, ?, ?, ? )";
     }
+
+    @Transactional
+    public String addCardDesigns() {
+        return "INSERT INTO carddesign (design_id, design_name, design_amount) " +
+                "VALUES ( ?, ?, ? )";
+    }
 }

@@ -2,10 +2,7 @@ package com.cardx.Cardx.Controllers;
 
 import com.cardx.Cardx.Model.Request.UserDetailsRequest;
 import com.cardx.Cardx.Model.Response.QuoteApiResponse;
-import com.cardx.Cardx.Services.GetCardService;
-import com.cardx.Cardx.Services.ProductService;
-import com.cardx.Cardx.Services.QuoteApiService;
-import com.cardx.Cardx.Services.UserDetailsService;
+import com.cardx.Cardx.Services.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +26,9 @@ public class CardxControllers {
 
     @Autowired
     UserDetailsService userDetailsService;
+
+    @Autowired
+    CardDesignsService cardDesignsService;
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
@@ -74,5 +74,12 @@ public class CardxControllers {
         String product = productService.setProduct(productDetails);
         return ResponseEntity.status(200).body(product);
     }
+
+    @PostMapping("/card/design")
+    public ResponseEntity<String> addCardDesigns(@RequestBody String cardDesignDetails) throws Exception {
+        String design =  cardDesignsService.addCardDesigns(cardDesignDetails);
+        return ResponseEntity.status(200).body(design);
+    }
+
 
 }
