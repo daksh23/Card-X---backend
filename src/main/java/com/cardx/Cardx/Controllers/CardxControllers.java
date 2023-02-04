@@ -74,7 +74,7 @@ public class CardxControllers {
         return ResponseEntity.status(200).body(product);
     }
 
-    @PostMapping("/card/design")
+    @PostMapping("/card/design/add")
     public ResponseEntity<String> addCardDesigns(@RequestBody String cardDesignDetails) throws Exception {
         String design =  cardDesignsService.addCardDesigns(cardDesignDetails);
         return ResponseEntity.status(200).body(design);

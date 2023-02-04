@@ -12,6 +12,8 @@
 
 ### Post Endpoints
 1. /user/add
+2. /product/add
+3. /design/add
 
 ### Tables
 > need to create tables (Database: cardx)
