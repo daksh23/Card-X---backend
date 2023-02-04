@@ -14,7 +14,7 @@ public class Repository implements RepositoryInterface {
     @Override
     public String getUserId(Long id) {
         return "select ur.user_id, ur.first_name, ur.last_name, ur.prefer_name, ur.contact, ur.email, " +
-                "pr.product_id, pr.card_name, pr.type_card, " +
+                "pr.product_id, pr.card_name, pr.type_card " +
                 "cd.design_id, cd.design_name, cd.design_amount,  " +
                 "sm.instagram, sm.snapchat, sm.social_media_id " +
                 "from userdetailsrequest ur, productrequest pr, socialmediarequest sm, carddesign cd " +
@@ -29,6 +29,9 @@ public class Repository implements RepositoryInterface {
         return "select user_id from userdetailsrequest ";
     }
 
+    public String getAllCardDesigns(){
+        return "select * from carddesign";
+    }
      /*
      * Add Data
      * Apis
@@ -46,8 +49,8 @@ public class Repository implements RepositoryInterface {
 
     @Transactional
     public String addProductDetails() {
-        return "INSERT INTO productsrequest (product_id, user_id, card_name, type_card, card_design_id, card_design_name, card_design_amount) " +
-                "VALUES ( ?, ?, ?, ?, ?, ?, ? )";
+        return "INSERT INTO productrequest (user_id, card_design_id, card_name, type_card) " +
+                "VALUES ( ?, ?, ?, ? )";
     }
 
     @Transactional

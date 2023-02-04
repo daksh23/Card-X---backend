@@ -18,7 +18,7 @@ public class SocialMediaRequest {
     @JsonProperty("social_media_id")
     private Long socialMediaId;
 
-    @JsonIgnore
+    @JsonProperty("user_id")
     private Long userId;
 
     @JsonProperty("snapchat")

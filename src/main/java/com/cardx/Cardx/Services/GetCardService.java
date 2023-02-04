@@ -1,6 +1,7 @@
 package com.cardx.Cardx.Services;
 
 import com.cardx.Cardx.DAO.Repository;
+import com.cardx.Cardx.Model.Request.CardDesigns;
 import com.cardx.Cardx.Model.Request.UserDetailsRequest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,5 +52,4 @@ public class GetCardService {
         List<UserDetailsRequest> userIds =  jdbcTemplate.query(sql, rowMapperService.rowUserIds);
         return userIds.stream().map(UserDetailsRequest::getUserId).toList();
     }
-
 }

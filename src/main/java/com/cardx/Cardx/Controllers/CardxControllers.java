@@ -61,11 +61,10 @@ public class CardxControllers {
         return getCardService.getAllEmails();
     }
 
-
     // Set Data from api call
     @PostMapping("/user/add")
     public ResponseEntity<String> setUserDetails(@RequestBody String userDetails) throws Exception {
-        String user =  userDetailsService.setUserDetails(userDetails);
+        String user = userDetailsService.setUserDetails(userDetails);
         return ResponseEntity.status(200).body(user);
     }
 
@@ -80,6 +79,4 @@ public class CardxControllers {
         String design =  cardDesignsService.addCardDesigns(cardDesignDetails);
         return ResponseEntity.status(200).body(design);
     }
-
-
 }

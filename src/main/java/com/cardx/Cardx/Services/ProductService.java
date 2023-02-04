@@ -32,21 +32,18 @@ public class ProductService {
             String sql = repository.addProductDetails();
             pr = mapper.readValue(productDetails, ProductRequest.class);
 
-//            int ans = jdbcTemplate.update(sql, pr.getProduct_id(), pr.getUser_id(), pr.getCard_name(), pr.getType_card(),
-//                    pr.getCard_design_id(), pr.getCard_design_name(), pr.getCard_design_amount());
+            int ans = jdbcTemplate.update(sql, pr.getUserId(), pr.getCardDesignId(), pr.getCardName(), pr.getTypeCard());
 
-//            if (ans == 1) {
-//                String jsonData = mapper.writeValueAsString(pr);
-//                // Event Log
-//                eventHelper.logEvent(Constants.STAGE_PRODUCT_DETAILS, pr.getUser_id(), jsonData);
-//                return jsonData;
-//            } else {
-//                return "we faced some technical issue, please try again after sometime";
-//            }
+            if (ans == 1) {
+                String jsonData = mapper.writeValueAsString(pr);
+                // Event Log
+                eventHelper.logEvent(Constants.STAGE_PRODUCT_DETAILS_ADD, pr.getUserId(), jsonData);
+                return jsonData;
+            } else {
+                return "we faced some technical issue, please try again after sometime";
+            }
         } catch (Exception e) {
             throw new Exception("Error in setProductDetails");
         }
-
-        return null;
     }
 }

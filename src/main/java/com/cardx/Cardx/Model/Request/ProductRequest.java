@@ -13,7 +13,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ProductRequest {
 
-    @JsonProperty("product_id")
+    @JsonIgnore
     private Long productId;
 
     @JsonProperty("user_id")
@@ -27,5 +27,7 @@ public class ProductRequest {
 
     @JsonProperty("type_card")
     private String typeCard;
+
+
 
 }

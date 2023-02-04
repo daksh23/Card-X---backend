@@ -38,7 +38,7 @@ public class UserDetailsService {
             if(ans == 1){
                 String jsonData = mapper.writeValueAsString(ur);
                 // Event Log
-                eventHelper.logEvent(Constants.STAGE_USER_DETAILS, ur.getUserId(), jsonData);
+                eventHelper.logEvent(Constants.STAGE_USER_DETAILS_ADD, ur.getUserId(), jsonData);
                return jsonData;
             }else{
                return "we faced some technical issue, please try again after sometime";

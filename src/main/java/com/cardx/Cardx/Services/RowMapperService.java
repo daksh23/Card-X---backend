@@ -1,5 +1,6 @@
 package com.cardx.Cardx.Services;
 
+import com.cardx.Cardx.Helper.Constants;
 import com.cardx.Cardx.Model.Request.CardDesigns;
 import com.cardx.Cardx.Model.Request.ProductRequest;
 import com.cardx.Cardx.Model.Request.SocialMediaRequest;
@@ -13,28 +14,27 @@ public class RowMapperService {
      public final RowMapper< UserDetailsRequest> rowMapper = (rs, rowNum) -> {
             UserDetailsRequest user = new UserDetailsRequest();
 
-            user.setUserId(rs.getLong("user_id"));
-            user.setUserFirstName(rs.getString("first_name"));
-            user.setUserLastName(rs.getString("last_name"));
-            user.setUserContact(rs.getString("contact"));
-            user.setUserEmail(rs.getString("email"));
-            user.setUserPreferName(rs.getString("prefer_name"));
+            user.setUserId(rs.getLong(Constants.USER_ID));
+            user.setUserFirstName(rs.getString(Constants.FIRST_NAME));
+            user.setUserLastName(rs.getString(Constants.LAST_NAME));
+            user.setUserContact(rs.getString(Constants.CONTACTS));
+            user.setUserEmail(rs.getString(Constants.EMAIL));
+            user.setUserPreferName(rs.getString(Constants.PREFER_NAME));
 
             ProductRequest pr = new ProductRequest();
-            pr.setProductId(rs.getLong("product_id"));
-            pr.setUserId(rs.getLong("user_id"));
-            pr.setCardName(rs.getString("card_name"));
-            pr.setTypeCard(rs.getString("type_card"));
+            pr.setProductId(rs.getLong(Constants.PRODUCT_ID));
+            pr.setUserId(rs.getLong(Constants.USER_ID));
+            pr.setCardName(rs.getString(Constants.CARD_NAME));
+            pr.setTypeCard(rs.getString(Constants.TYPE_CARD));
             user.setProductRequest(pr);
 
             CardDesigns cd = new CardDesigns();
             cd.setCardDesignId(rs.getString("card_design_id"));
             cd.setCardDesignName(rs.getString("card_design_name"));
             cd.setCardDesignAmount(rs.getString("card_design_amount"));
-            cd.setProductRequest(pr);
 
             SocialMediaRequest sm = new SocialMediaRequest();
-            sm.setUserId(rs.getLong("user_id"));
+            sm.setUserId(rs.getLong(Constants.USER_ID));
             sm.setInstagram(rs.getString("instagram"));
             sm.setSnapchat(rs.getString("snapchat"));
             sm.setSocialMediaId(rs.getLong("social_media_id"));
@@ -45,13 +45,13 @@ public class RowMapperService {
 
        public final RowMapper< UserDetailsRequest> rowUserIds = (rs, rowNum) -> {
               UserDetailsRequest user = new UserDetailsRequest();
-              user.setUserId(rs.getLong("user_id"));
+              user.setUserId(rs.getLong(Constants.USER_ID));
               return user;
        };
 
        public final RowMapper< UserDetailsRequest> rowEmails = (rs, rowNum) -> {
               UserDetailsRequest user = new UserDetailsRequest();
-              user.setUserEmail(rs.getString("email"));
+              user.setUserEmail(rs.getString(Constants.EMAIL));
               return user;
        };
 
