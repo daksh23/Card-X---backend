@@ -26,7 +26,7 @@ public class ProductService {
     }
     private final ObjectMapper mapper = new ObjectMapper();
 
-    public String setProduct(String productDetails) throws Exception {
+    public String  setProduct(String productDetails) throws Exception {
         ProductRequest pr;
         try {
             String sql = repository.addProductDetails();

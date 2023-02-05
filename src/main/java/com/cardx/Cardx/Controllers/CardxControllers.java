@@ -85,7 +85,7 @@ public class CardxControllers {
         return ResponseEntity.status(200).body(design);
     }
 
-    @PostMapping("/socialmedia/add")
+    @PostMapping("/social/media/add")
     public ResponseEntity<String> socialMedia(@RequestBody String socialMediaDetails) throws Exception {
         String socialMedia =  socialMediaService.addSocialMediaDetails(socialMediaDetails);
         return ResponseEntity.status(200).body(socialMedia);
@@ -96,4 +96,6 @@ public class CardxControllers {
         String address = addressService.addAddress(addressDetails);
         return ResponseEntity.status(200).body(address);
     }
+
+
 }

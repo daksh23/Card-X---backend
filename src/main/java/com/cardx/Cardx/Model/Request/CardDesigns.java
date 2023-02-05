@@ -20,4 +20,6 @@ public class CardDesigns {
 
     @JsonProperty("design_amount")
     private String cardDesignAmount;
+
+
 }

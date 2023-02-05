@@ -20,13 +20,15 @@ public class ProductRequest {
     private Long userId;
 
     @JsonProperty("card_design_id")
-    private String cardDesignId;
+    private Long cardDesignId;
 
     @JsonProperty("card_name")
     private String cardName;
 
     @JsonProperty("type_card")
     private String typeCard;
+
+
 
 
 

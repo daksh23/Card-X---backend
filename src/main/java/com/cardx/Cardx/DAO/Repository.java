@@ -14,11 +14,14 @@ public class Repository implements RepositoryInterface {
     @Override
     public String getUserId(Long id) {
         return "select ur.user_id, ur.first_name, ur.last_name, ur.prefer_name, ur.contact, ur.email, " +
-                "pr.product_id, pr.card_name, pr.type_card " +
-                "cd.design_id, cd.design_name, cd.design_amount,  " +
+                "pr.card_design_id, pr.card_name, pr.type_card, " +
+                "ad.unit_no, ad.city, ad.postal_code, ad.province, ad.country, " +
                 "sm.instagram, sm.snapchat, sm.social_media_id " +
-                "from userdetailsrequest ur, productrequest pr, socialmediarequest sm, carddesign cd " +
-                "where 1=1 AND ur.user_id=? AND ur.user_id=pr.user_id AND ur.user_id=sm.user_id AND pr.card_design_id=cd.design_id";
+                "from userdetailsrequest ur, productrequest pr, socialmediarequest sm, addressrequest ad " +
+                "where 1=1 AND ur.user_id=? AND " +
+                "ur.user_id=pr.user_id AND " +
+                "ur.user_id=sm.user_id AND " +
+                "ad.user_id=ur.user_id";
     }
 
     public String getAllEmails(){
