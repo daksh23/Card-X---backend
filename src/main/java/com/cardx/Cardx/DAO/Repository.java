@@ -58,4 +58,17 @@ public class Repository implements RepositoryInterface {
         return "INSERT INTO carddesign (design_id, design_name, design_amount) " +
                 "VALUES ( ?, ?, ? )";
     }
+
+    @Transactional
+    public String addSocialMedia() {
+        return "INSERT INTO socialmediarequest(social_media_id, user_id, snapchat, instagram) " +
+                "VALUES (?,? ,? ,?) ";
+    }
+
+    @Transactional
+    public String addAddress(){
+        return "INSERT INTO addressrequest ( user_id, unit_no, city, postal_code, province, country) " +
+                "VALUES (?, ?, ?, ?, ?, ?)";
+    }
+
 }

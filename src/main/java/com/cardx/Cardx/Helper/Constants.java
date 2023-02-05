@@ -6,7 +6,10 @@ public class Constants {
 
    public static final String STAGE_USER_DETAILS_ADD = "USER_DETAILS_ADD";
    public static final String STAGE_PRODUCT_DETAILS_ADD = "PRODUCT_DETAILS_ADD";
-   public static final String STAGE_CARD_DESIGN_ADD = "CARD_DESIGN_ADD";
+
+   public static final String STAGE_SOCIAL_MEDIA_ADD = "SOCIAL_MEDIA_ADD";
+
+   public static final String STAGE_ADDRESS_ADD = "ADDRESS_ADD";
 
    // User Details Constants
    public static final String USER_ID = "user_id";

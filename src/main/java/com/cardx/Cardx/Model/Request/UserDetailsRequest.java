@@ -37,4 +37,7 @@ public class UserDetailsRequest {
 
     @JsonProperty("products")
     ProductRequest productRequest;
+
+    @JsonProperty("address")
+    AddressRequest addressRequest;
 }

@@ -13,7 +13,9 @@
 ### Post Endpoints
 1. /user/add
 2. /product/add
-3. /design/add
+3. /card/design/add
+4. /socialmedia/add
+5. /user/address/add
 
 ### Tables
 > need to create tables (Database: cardx)
@@ -22,6 +24,7 @@
 3. productrequest
 4. socialmediarequest
 5. carddesign
+6. addressrequest
 
 ### Technologies
 1. Java

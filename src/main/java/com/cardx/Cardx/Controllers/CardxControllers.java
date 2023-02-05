@@ -1,6 +1,5 @@
 package com.cardx.Cardx.Controllers;
 
-import com.cardx.Cardx.Model.Request.UserDetailsRequest;
 import com.cardx.Cardx.Model.Response.QuoteApiResponse;
 import com.cardx.Cardx.Services.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -19,6 +18,9 @@ public class CardxControllers {
     GetCardService getCardService;
 
     @Autowired
+    SocialMediaService socialMediaService;
+
+    @Autowired
     QuoteApiService quoteApiService;
 
     @Autowired
@@ -29,6 +31,9 @@ public class CardxControllers {
 
     @Autowired
     CardDesignsService cardDesignsService;
+
+    @Autowired
+    AddressService addressService;
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
@@ -78,5 +83,17 @@ public class CardxControllers {
     public ResponseEntity<String> addCardDesigns(@RequestBody String cardDesignDetails) throws Exception {
         String design =  cardDesignsService.addCardDesigns(cardDesignDetails);
         return ResponseEntity.status(200).body(design);
+    }
+
+    @PostMapping("/socialmedia/add")
+    public ResponseEntity<String> socialMedia(@RequestBody String socialMediaDetails) throws Exception {
+        String socialMedia =  socialMediaService.addSocialMediaDetails(socialMediaDetails);
+        return ResponseEntity.status(200).body(socialMedia);
+    }
+
+    @PostMapping("/user/address/add")
+    public ResponseEntity<String> addAddress(@RequestBody String addressDetails) throws Exception {
+        String address = addressService.addAddress(addressDetails);
+        return ResponseEntity.status(200).body(address);
     }
 }
