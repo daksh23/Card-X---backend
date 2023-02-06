@@ -4,10 +4,15 @@ import com.cardx.Cardx.DAO.Repository;
 import com.cardx.Cardx.Helper.Constants;
 import com.cardx.Cardx.Helper.EventHelper;
 import com.cardx.Cardx.Model.Request.CardDesigns;
+import com.cardx.Cardx.Model.Request.UserDetailsRequest;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CardDesignsService {
@@ -16,6 +21,9 @@ public class CardDesignsService {
     Repository repository;
 
     private final JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    RowMapperService rowMapperService;
 
     @Autowired
     EventHelper eventHelper;
@@ -43,5 +51,11 @@ public class CardDesignsService {
         }catch (Exception e) {
             throw new Exception("Error in setCardDesigns");
         }
+    }
+
+    public String getCardDesignById(Long id) throws JsonProcessingException {
+        String sql = repository.getCardDesignById(id);
+        List<CardDesigns> cardDesign =  jdbcTemplate.query(sql, rowMapperService.rowCardDesign, id);
+        return mapper.writeValueAsString(cardDesign);
     }
 }

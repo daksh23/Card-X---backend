@@ -66,6 +66,13 @@ public class CardxControllers {
         return getCardService.getAllEmails();
     }
 
+    @GetMapping("/card/design/{id}")
+    public ResponseEntity<String> getCardDesignById(@PathVariable Long id) throws JsonProcessingException {
+        return ResponseEntity.ok(cardDesignsService.getCardDesignById(id));
+    }
+
+
+
     // Set Data from api call
     @PostMapping("/user/add")
     public ResponseEntity<String> setUserDetails(@RequestBody String userDetails) throws Exception {

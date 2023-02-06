@@ -57,4 +57,14 @@ public class RowMapperService {
               return user;
        };
 
+       public final RowMapper<CardDesigns> rowCardDesign = (rs, rowNum) -> {
+              CardDesigns cardDesigns = new CardDesigns();
+
+              cardDesigns.setCardDesignId(rs.getLong(Constants.DESIGN_ID));
+              cardDesigns.setCardDesignName((rs.getString(Constants.DESIGN_NAME)));
+              cardDesigns.setCardDesignAmount(rs.getString(Constants.DESIGN_AMOUNT));
+
+              return cardDesigns;
+       };
+
 }

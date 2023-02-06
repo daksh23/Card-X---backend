@@ -13,7 +13,7 @@ import lombok.Setter;
 public class CardDesigns {
 
     @JsonProperty("design_id")
-    private String cardDesignId;
+    private Long cardDesignId;
 
     @JsonProperty("design_name")
     private String cardDesignName;

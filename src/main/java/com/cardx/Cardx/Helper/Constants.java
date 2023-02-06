@@ -19,8 +19,9 @@ public class Constants {
    // Product Request Constants
    public static final String PRODUCT_ID = "product_id";
    public static final String CARD_DESIGN_ID = "card_design_id";
-   public static final String  CARD_DESIGN_NAME = "card_design_name";
-   public static final String  CARD_DESIGN_AMOUNT = "card_design_amount";
+   public static final String DESIGN_ID = "design_id";
+   public static final String  DESIGN_NAME = "design_name";
+   public static final String  DESIGN_AMOUNT = "design_amount";
    public static final String CARD_NAME = "card_name";
    public static final String TYPE_CARD = "type_card";
 

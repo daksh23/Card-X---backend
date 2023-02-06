@@ -35,6 +35,14 @@ public class Repository implements RepositoryInterface {
     public String getAllCardDesigns(){
         return "select * from carddesign";
     }
+
+//    getCardDesignById
+    public String getCardDesignById(Long id){
+        return "select * from carddesign where design_id=?";
+    }
+
+
+
      /*
      * Add Data
      * Apis
@@ -73,5 +81,6 @@ public class Repository implements RepositoryInterface {
         return "INSERT INTO addressrequest ( user_id, unit_no, city, postal_code, province, country) " +
                 "VALUES (?, ?, ?, ?, ?, ?)";
     }
+
 
 }
