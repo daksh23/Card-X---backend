@@ -1,0 +1,361 @@
+{
+	"info": {
+		"_postman_id": "849421a8-728b-40ca-b899-17912c401f39",
+		"name": "A CardX",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11251301"
+	},
+	"item": [
+		{
+			"name": "Add User Details",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\":3823,\r\n    \"first_name\" : \"Random\",\r\n    \"last_name\" : \"Test\",\r\n    \"prefer_name\" : \"Test by\",\r\n    \"contact\" : \"1234567833\",\r\n    \"email\" : \"test@test@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cardx/rest/v1/user/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cardx",
+						"rest",
+						"v1",
+						"user",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Emailer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"to\": \"test@outlook.com\",\r\n    \"subject\": \"One More Time\",\r\n    \"body\" : \"<h1>Hy there, this is cardx</h1>\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cardx/rest/v1/mail/send",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cardx",
+						"rest",
+						"v1",
+						"mail",
+						"send"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Welcome",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/rest/v1/Welcome",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"v1",
+						"Welcome"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cardx/rest/v1/user/2338",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cardx",
+						"rest",
+						"v1",
+						"user",
+						"2338"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Quote of the Day",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cardx/rest/v1/quotes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cardx",
+						"rest",
+						"v1",
+						"quotes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user IDs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cardx/rest/v1/user/ids",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cardx",
+						"rest",
+						"v1",
+						"user",
+						"ids"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user Emails",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cardx/rest/v1/user/emails",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cardx",
+						"rest",
+						"v1",
+						"user",
+						"emails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Card Design",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"design_id\":\"14\",\r\n   \"design_name\":\"Horny Fantasy\",\r\n   \"design_amount\":\"320\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cardx/rest/v1/card/design/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cardx",
+						"rest",
+						"v1",
+						"card",
+						"design",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Product Details",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\":3823,\r\n    \"card_design_id\" : 5,\r\n    \"card_name\" : \"Villain\",\r\n    \"type_card\" : \"D\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cardx/rest/v1/product/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cardx",
+						"rest",
+						"v1",
+						"product",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Social Media Details",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"social_media_id\" : 54654,\r\n    \"user_id\":3823,\r\n    \"snapchat\" : \"Test34\",\r\n    \"instagram\" : \"Test_34\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cardx/rest/v1/social/media/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cardx",
+						"rest",
+						"v1",
+						"social",
+						"media",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Address",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\":3823,\r\n    \"unit_no\" : 24,\r\n    \"city\" : \"Xyz\",\r\n    \"postal_code\" : \"384365\",\r\n    \"province\" : \"Ontario\",\r\n    \"country\" : \"Canada\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cardx/rest/v1/user/address/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cardx",
+						"rest",
+						"v1",
+						"user",
+						"address",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Quotes Api 3rd Party",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://type.fit/api/quotes",
+					"protocol": "https",
+					"host": [
+						"type",
+						"fit"
+					],
+					"path": [
+						"api",
+						"quotes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCard Design",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cardx/rest/v1/card/design/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cardx",
+						"rest",
+						"v1",
+						"card",
+						"design",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
