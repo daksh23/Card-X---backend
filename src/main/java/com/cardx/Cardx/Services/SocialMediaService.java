@@ -4,7 +4,6 @@ import com.cardx.Cardx.DAO.Repository;
 import com.cardx.Cardx.Helper.Constants;
 import com.cardx.Cardx.Helper.EventHelper;
 import com.cardx.Cardx.Model.Request.SocialMediaRequest;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.LogManager;

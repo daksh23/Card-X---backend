@@ -4,7 +4,6 @@ import com.cardx.Cardx.DAO.Repository;
 import com.cardx.Cardx.Helper.Constants;
 import com.cardx.Cardx.Helper.EventHelper;
 import com.cardx.Cardx.Model.Request.ProductRequest;
-import com.cardx.Cardx.Model.Request.UserDetailsRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

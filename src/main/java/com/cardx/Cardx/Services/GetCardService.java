@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 
-
 // Get Data Apis
 // Version 1
 

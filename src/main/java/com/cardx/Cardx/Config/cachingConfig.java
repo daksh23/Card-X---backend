@@ -6,14 +6,10 @@ import org.ehcache.config.builders.CacheConfigurationBuilder;
 import org.ehcache.config.builders.ExpiryPolicyBuilder;
 import org.ehcache.config.builders.ResourcePoolsBuilder;
 import org.ehcache.config.units.MemoryUnit;
-import org.ehcache.core.EhcacheManager;
 import org.ehcache.jsr107.Eh107Configuration;
-import org.springframework.cache.annotation.CachingConfigurer;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import javax.cache.Cache;
 import javax.cache.CacheManager;
 import javax.cache.Caching;
 import javax.cache.spi.CachingProvider;
@@ -35,11 +31,11 @@ public class cachingConfig {
                 .withExpiry(ExpiryPolicyBuilder.timeToIdleExpiration(Duration.ofSeconds(10000)))
                 .build();
 
-
         CachingProvider cachingProvider = Caching.getCachingProvider();
         CacheManager cacheManager = cachingProvider.getCacheManager();
 
-        javax.cache.configuration.Configuration<String, QuoteApiResponse> configuration = Eh107Configuration.fromEhcacheCacheConfiguration(cachecConfig);
+        javax.cache.configuration.Configuration<String, QuoteApiResponse> configuration = Eh107Configuration
+                .fromEhcacheCacheConfiguration(cachecConfig);
 
         cacheManager.createCache("quoteCache", configuration);
 

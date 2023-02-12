@@ -2,9 +2,7 @@ package com.cardx.Cardx.Services;
 
 import com.cardx.Cardx.DAO.Repository;
 import com.cardx.Cardx.Helper.Constants;
-import com.cardx.Cardx.Helper.EventHelper;
 import com.cardx.Cardx.Model.Request.CardDesigns;
-import com.cardx.Cardx.Model.Request.UserDetailsRequest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.LogManager;
