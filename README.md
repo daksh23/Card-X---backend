@@ -18,7 +18,7 @@
 4. /socialmedia/add
 5. /user/address/add
 
-### Tables
+## Tables
 > need to create tables (Database: cardx)
 1. userdetailsrequest
 2. eventrequest
@@ -27,19 +27,14 @@
 5. carddesign
 6. addressrequest
 
-### Technologies
+## Technologies
 1. Java
 2. Spring Boot
 3. maven
 
-### UI
-> ui repo will create soon ( AngularJs )
-
-
 ## Important Notes
 
 ## Application.properties
-
 ### For SMTP Server - Need to set you Mail ID and Password
 ```
 >> you can generate app password from google manage account (steps below)
@@ -62,3 +57,6 @@
 ```
 * spring.cache.jcache.config=classpath:ehcache.xml
 ```
+
+## UI
+> ui repo will create soon ( AngularJs )
