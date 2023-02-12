@@ -58,5 +58,5 @@
 * spring.cache.jcache.config=classpath:ehcache.xml
 ```
 
-## UI
-> ui repo will create soon ( AngularJs )
+## UI - Angular
+> https://github.com/daksh23/Card-X-UI
