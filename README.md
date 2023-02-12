@@ -34,3 +34,31 @@
 
 ### UI
 > ui repo will create soon ( AngularJs )
+
+
+## Important Notes
+
+## Application.properties
+
+### For SMTP Server - Need to set you Mail ID and Password
+```
+>> you can generate app password from google manage account (steps below)
+* Login to Gmail
+* Manage your Google Account
+* Security
+* App Passwords
+* Provide your login password
+* Select app with a custom name
+* Click on Generate
+```
+
+### Gmail
+```
+* spring.mail.host=smtp.gmail.com
+* spring.mail.port=587
+```
+
+### For Caching
+```
+* spring.cache.jcache.config=classpath:ehcache.xml
+```

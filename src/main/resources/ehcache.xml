@@ -20,7 +20,7 @@
 
         <resources>
             <heap unit="entries">2</heap>
-            <offheap unit="MB">10</offheap>
+            <offheap unit="MB">100</offheap>
         </resources>
     </cache>
 

@@ -35,6 +35,9 @@ public class CardxControllers {
     @Autowired
     AddressService addressService;
 
+    @Autowired
+    EmailerService emailerService;
+
     private ObjectMapper objectMapper = new ObjectMapper();
 
 
@@ -71,38 +74,37 @@ public class CardxControllers {
         return ResponseEntity.ok(cardDesignsService.getCardDesignById(id));
     }
 
-
-
     // Set Data from api call
     @PostMapping("/user/add")
     public ResponseEntity<String> setUserDetails(@RequestBody String userDetails) throws Exception {
-        String user = userDetailsService.setUserDetails(userDetails);
-        return ResponseEntity.status(200).body(user);
+        return userDetailsService.setUserDetails(userDetails);
     }
 
     @PostMapping("/product/add")
     public ResponseEntity<String> setProduct(@RequestBody String productDetails) throws Exception {
-        String product = productService.setProduct(productDetails);
-        return ResponseEntity.status(200).body(product);
+        return productService.setProduct(productDetails);
     }
 
     @PostMapping("/card/design/add")
     public ResponseEntity<String> addCardDesigns(@RequestBody String cardDesignDetails) throws Exception {
-        String design =  cardDesignsService.addCardDesigns(cardDesignDetails);
-        return ResponseEntity.status(200).body(design);
+        return cardDesignsService.addCardDesigns(cardDesignDetails);
     }
 
     @PostMapping("/social/media/add")
     public ResponseEntity<String> socialMedia(@RequestBody String socialMediaDetails) throws Exception {
-        String socialMedia =  socialMediaService.addSocialMediaDetails(socialMediaDetails);
-        return ResponseEntity.status(200).body(socialMedia);
+        return socialMediaService.addSocialMediaDetails(socialMediaDetails);
     }
 
     @PostMapping("/user/address/add")
     public ResponseEntity<String> addAddress(@RequestBody String addressDetails) throws Exception {
-        String address = addressService.addAddress(addressDetails);
-        return ResponseEntity.status(200).body(address);
+        return addressService.addAddress(addressDetails);
     }
 
 
+    // Mailer Controller
+    @PostMapping("/mail/send")
+    public ResponseEntity<String> mailerSender(@RequestBody String mailData) throws Exception {
+        emailerService.sendEmail(mailData);
+        return ResponseEntity.status(200).body("Mail Sent");
+    }
 }

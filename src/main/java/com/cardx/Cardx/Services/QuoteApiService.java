@@ -3,7 +3,8 @@ package com.cardx.Cardx.Services;
 import com.cardx.Cardx.Model.Response.QuoteApiResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.slf4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
@@ -34,13 +35,16 @@ public class QuoteApiService {
 
     private Random rand = new Random();
 
-    public static final String Cardx_KEY = "cardx-key";
+
+    private static final Logger logger = LogManager.getLogger(QuoteApiService.class);
+    private static final String method = "getQuoteOfTheDay";
 
     @Cacheable( // Cacheable help to store response of this method as cache with define key
             value = "quoteCache",
             key = "#root.target.Cardx_KEY"
     )
     public QuoteApiResponse getQuoteOfTheDay() throws JsonProcessingException {
+        logger.debug(method);
 
         QuoteApiResponse quoteApiResponse = new QuoteApiResponse();
 
@@ -56,7 +60,7 @@ public class QuoteApiService {
         QuoteApiResponse[] langs = objectMapper.readValue(response, QuoteApiResponse[].class);
         List<QuoteApiResponse> langList = new ArrayList(Arrays.asList(langs)); // converted into List from Array
 
-        int indexNum = RandomNumberGenerator(langList.size()); // Generating random number
+        int indexNum = randomNumberGenerator(langList.size()); // Generating random number
 
         // set into response with random index from list
         quoteApiResponse.setText(langList.get(indexNum).getText());
@@ -65,11 +69,8 @@ public class QuoteApiService {
         return quoteApiResponse;
     }
 
-    private int RandomNumberGenerator(int sizeOfList){
-
-        int upperbound = sizeOfList;
-        int randomNumber = rand.nextInt(upperbound);
-        return randomNumber;
+    private int randomNumberGenerator(int sizeOfList){
+       return rand.nextInt(sizeOfList);
     }
 
 

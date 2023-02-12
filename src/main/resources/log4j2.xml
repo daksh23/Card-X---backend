@@ -31,7 +31,8 @@
         </Root>
 
         <!-- LOG "com.baeldung*" at TRACE level -->
-        <Logger name="com.baeldung" level="trace"></Logger>
+        <Logger name="com.cardx" level="trace"></Logger>
+        <Logger name="com.cardx" level="debug"></Logger>
     </Loggers>
 
 </Configuration>

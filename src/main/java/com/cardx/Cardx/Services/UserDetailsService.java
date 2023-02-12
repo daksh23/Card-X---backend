@@ -5,11 +5,13 @@ import com.cardx.Cardx.Helper.Constants;
 import com.cardx.Cardx.Helper.EventHelper;
 import com.cardx.Cardx.Model.Request.UserDetailsRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.coyote.Response;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
-
-import java.util.Date;
 
 @Component
 public class UserDetailsService {
@@ -20,28 +22,35 @@ public class UserDetailsService {
     @Autowired
     EventHelper eventHelper;
 
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
 
-    private ObjectMapper mapper = new ObjectMapper();
+    private final ObjectMapper mapper = new ObjectMapper();
+
+    private static final Logger logger = LogManager.getLogger(UserDetailsService.class);
+    private static final String method = "setUserDetails";
 
     public UserDetailsService(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public String setUserDetails(String userDetails) throws Exception {
+    public ResponseEntity<String> setUserDetails(String userDetails) throws Exception {
+        logger.debug(method + ": User Details: {}", userDetails );
+
         UserDetailsRequest ur;
         try{
             String sql = repository.addUserDetails();
             ur = mapper.readValue(userDetails, UserDetailsRequest.class);
+
             int ans = jdbcTemplate.update(sql, ur.getUserId(), ur.getUserFirstName(), ur.getUserLastName(), ur.getUserPreferName(),
                     ur.getUserContact(), ur.getUserEmail());
+
             if(ans == 1){
-                String jsonData = mapper.writeValueAsString(ur);
+                String user = mapper.writeValueAsString(ur);
                 // Event Log
-                eventHelper.logEvent(Constants.STAGE_USER_DETAILS_ADD, ur.getUserId(), jsonData);
-               return jsonData;
+                eventHelper.logEvent(Constants.STAGE_USER_DETAILS_ADD, ur.getUserId(), user);
+               return ResponseEntity.status(200).body(user);
             }else{
-               return "we faced some technical issue, please try again after sometime";
+               return ResponseEntity.status(207).body(Constants.ERROR_MSG_FOR_NOT_ADD_DATA);
             }
         }catch (Exception e){
             throw new Exception("Error in setUserDetails");

@@ -3,6 +3,8 @@ package com.cardx.Cardx.Services;
 import com.cardx.Cardx.Helper.Constants;
 import com.cardx.Cardx.Model.Request.*;
 import io.netty.util.Constant;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.tomcat.util.bcel.Const;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
@@ -10,7 +12,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class RowMapperService {
 
+       private static final Logger logger = LogManager.getLogger(RowMapperService.class);
      public final RowMapper< UserDetailsRequest> rowMapper = (rs, rowNum) -> {
+            logger.debug("rowMapper: {} ", rs );
+
             UserDetailsRequest user = new UserDetailsRequest();
 
             user.setUserId(rs.getLong(Constants.USER_ID));
@@ -46,18 +51,22 @@ public class RowMapperService {
      };
 
        public final RowMapper< UserDetailsRequest> rowUserIds = (rs, rowNum) -> {
+              logger.debug("rowUserIds: {} ", rs );
+
               UserDetailsRequest user = new UserDetailsRequest();
               user.setUserId(rs.getLong(Constants.USER_ID));
               return user;
        };
 
        public final RowMapper< UserDetailsRequest> rowEmails = (rs, rowNum) -> {
+              logger.debug("rowEmails: {} ", rs );
               UserDetailsRequest user = new UserDetailsRequest();
               user.setUserEmail(rs.getString(Constants.EMAIL));
               return user;
        };
 
        public final RowMapper<CardDesigns> rowCardDesign = (rs, rowNum) -> {
+              logger.debug("rowCardDesign: {} ", rs );
               CardDesigns cardDesigns = new CardDesigns();
 
               cardDesigns.setCardDesignId(rs.getLong(Constants.DESIGN_ID));

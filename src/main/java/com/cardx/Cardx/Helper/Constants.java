@@ -38,4 +38,7 @@ public class Constants {
    public  static final String PROVINCE = "province";
    public  static final String COUNTRY = "country";
 
+
+   // Error Messages
+   public static final String ERROR_MSG_FOR_NOT_ADD_DATA = "We are unable to update or insert record";
 }
