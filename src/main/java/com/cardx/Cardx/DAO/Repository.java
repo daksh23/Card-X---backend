@@ -41,6 +41,9 @@ public class Repository implements RepositoryInterface {
         return "select * from carddesign where design_id=?";
     }
 
+    public String getCardDesign(){
+        return "select * from carddesign";
+    }
 
 
      /*

@@ -10,6 +10,7 @@
 4. /user/ids
 5. /user/emails
 6. /card/design/{id}
+7. /card/design
 
 ### Post Endpoints
 1. /user/add

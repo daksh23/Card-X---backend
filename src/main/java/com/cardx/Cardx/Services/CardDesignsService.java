@@ -60,4 +60,11 @@ public class CardDesignsService {
         List<CardDesigns> cardDesign =  jdbcTemplate.query(sql, rowMapperService.rowCardDesign, id);
         return mapper.writeValueAsString(cardDesign);
     }
+
+    public String getCardDesign() throws JsonProcessingException {
+        logger.debug("method : getCardDesign");
+        String sql = repository.getCardDesign();
+        List<CardDesigns> cardDesign =  jdbcTemplate.query(sql, rowMapperService.rowCardDesign);
+        return mapper.writeValueAsString(cardDesign);
+    }
 }

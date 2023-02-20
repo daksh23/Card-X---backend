@@ -74,6 +74,11 @@ public class CardxControllers {
         return ResponseEntity.ok(cardDesignsService.getCardDesignById(id));
     }
 
+    @GetMapping("/card/design")
+    public ResponseEntity<String> getCardDesign() throws JsonProcessingException {
+        return ResponseEntity.ok(cardDesignsService.getCardDesign());
+    }
+
     // Set Data from api call
     @PostMapping("/user/add")
     public ResponseEntity<String> setUserDetails(@RequestBody String userDetails) throws Exception {
