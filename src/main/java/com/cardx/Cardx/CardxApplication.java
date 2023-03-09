@@ -6,12 +6,6 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
-
-/**
- * Card x project - degital card
- * cardx api service
- * cardx ui - angular
- * **/
 @SpringBootApplication
 @EnableCaching
 public class CardxApplication {
