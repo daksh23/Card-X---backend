@@ -31,7 +31,7 @@ public class QuoteApiService {
 
     private Random rand = new Random();
 
-
+    public static final String Cardx_KEY = "quote.cache.key";
     private static final Logger logger = LogManager.getLogger(QuoteApiService.class);
     private static final String method = "getQuoteOfTheDay";
 
