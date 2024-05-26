@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200") // Specify the allowed origin
 @RestController
 @RequestMapping("cardx/rest/v1")
 public class CardxControllers {
