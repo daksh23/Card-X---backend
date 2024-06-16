@@ -20,8 +20,13 @@ public class Constants {
    public static final String PRODUCT_ID = "product_id";
    public static final String CARD_DESIGN_ID = "card_design_id";
    public static final String DESIGN_ID = "design_id";
-   public static final String  DESIGN_NAME = "design_name";
-   public static final String  DESIGN_AMOUNT = "design_amount";
+   public static final String  DESIGN_NAME = "designName";
+   public static final String  DESIGN_AMOUNT = "designAmount";
+
+   public static final String  DESIGN_IMAGE = "image";
+   public static final String  DESIGN_COLLECTION = "collection";
+
+   public static final String  DESIGN_DMY_USER_NAME = "dmyUserName";
    public static final String CARD_NAME = "card_name";
    public static final String TYPE_CARD = "type_card";
 

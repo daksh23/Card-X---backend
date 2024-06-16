@@ -15,11 +15,19 @@ public class CardDesigns {
     @JsonProperty("design_id")
     private Long cardDesignId;
 
-    @JsonProperty("design_name")
+    @JsonProperty("designName")
     private String cardDesignName;
 
-    @JsonProperty("design_amount")
-    private String cardDesignAmount;
+    @JsonProperty("image")
+    private String cardDesignImage;
 
+    @JsonProperty("collection")
+    private String cardDesignCollection;
+
+    @JsonProperty("dmyUserName")
+    private String dmyUserName;
+
+    @JsonProperty("designAmount")
+    private String cardDesignAmount;
 
 }

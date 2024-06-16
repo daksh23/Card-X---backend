@@ -70,6 +70,9 @@ public class RowMapperService {
               cardDesigns.setCardDesignId(rs.getLong(Constants.DESIGN_ID));
               cardDesigns.setCardDesignName((rs.getString(Constants.DESIGN_NAME)));
               cardDesigns.setCardDesignAmount(rs.getString(Constants.DESIGN_AMOUNT));
+              cardDesigns.setCardDesignCollection(rs.getString(Constants.DESIGN_COLLECTION));
+              cardDesigns.setCardDesignImage(rs.getString(Constants.DESIGN_IMAGE));
+              cardDesigns.setDmyUserName(rs.getString(Constants.DESIGN_DMY_USER_NAME));
 
               return cardDesigns;
        };

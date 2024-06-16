@@ -75,7 +75,7 @@ public class CardxControllers {
         return ResponseEntity.ok(cardDesignsService.getCardDesignById(id));
     }
 
-    @GetMapping("/card/design")
+    @GetMapping("/card/designs")
     public ResponseEntity<String> getCardDesign() throws JsonProcessingException {
         return ResponseEntity.ok(cardDesignsService.getCardDesign());
     }

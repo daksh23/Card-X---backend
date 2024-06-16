@@ -33,16 +33,16 @@ public class Repository implements RepositoryInterface {
     }
 
     public String getAllCardDesigns(){
-        return "select * from carddesign";
+        return "select * from carddesigns";
     }
 
 //    getCardDesignById
     public String getCardDesignById(Long id){
-        return "select * from carddesign where design_id=?";
+        return "select * from carddesigns where design_id=?";
     }
 
     public String getCardDesign(){
-        return "select * from carddesign";
+        return "select * from carddesigns";
     }
 
 
@@ -69,8 +69,8 @@ public class Repository implements RepositoryInterface {
 
     @Transactional
     public String addCardDesigns() {
-        return "INSERT INTO carddesign (design_id, design_name, design_amount) " +
-                "VALUES ( ?, ?, ? )";
+        return "INSERT INTO carddesigns (designName, image, collection, dmyUserName, designAmount) " +
+                "VALUES ( ?, ?, ? ,?, ?, ? )";
     }
 
     @Transactional
