@@ -16,7 +16,7 @@ public class Constants {
    public static final String CONTACT = "contact";
    public static final String EMAIL = "email";
 
-   // Product Request Constants
+   // Request Constants
    public static final String PRODUCT_ID = "product_id";
    public static final String CARD_DESIGN_ID = "card_design_id";
    public static final String DESIGN_ID = "design_id";
@@ -29,6 +29,20 @@ public class Constants {
    public static final String  DESIGN_DMY_USER_NAME = "dmyUserName";
    public static final String CARD_NAME = "card_name";
    public static final String TYPE_CARD = "type_card";
+
+   public static final String FEATURE_ICON = "icon";
+
+   public static final String FEATURE_TITLE = "title";
+
+   public static final String FEATURE_DESCRIPTION = "description";
+
+   public static final String FEATURE_ID = "feature_id";
+
+   public static final String LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+   public static final String DIGITS = "0123456789";
+   public static final int LETTERS_LENGTH = 3;
+   public static final int DIGITS_LENGTH = 4;
+   public static final int TOTAL_LENGTH = LETTERS_LENGTH + DIGITS_LENGTH + LETTERS_LENGTH;
 
    // Social Media
 

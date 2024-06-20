@@ -39,6 +39,12 @@ public class CardxControllers {
     @Autowired
     EmailerService emailerService;
 
+    @Autowired
+    HelpService helpService;
+
+    @Autowired
+    CardFeaturesService cardFeaturesService;
+
     private ObjectMapper objectMapper = new ObjectMapper();
 
 
@@ -80,6 +86,11 @@ public class CardxControllers {
         return ResponseEntity.ok(cardDesignsService.getCardDesign());
     }
 
+    @GetMapping("/card/features")
+    public ResponseEntity<String> getFeatures() throws Exception {
+        return ResponseEntity.ok(cardFeaturesService.retrieveFeatures());
+    }
+
     // Set Data from api call
     @PostMapping("/user/add")
     public ResponseEntity<String> setUserDetails(@RequestBody String userDetails) throws Exception {
@@ -106,6 +117,10 @@ public class CardxControllers {
         return addressService.addAddress(addressDetails);
     }
 
+    @PostMapping("/card/help/add")
+    public ResponseEntity<String> addHelp(@RequestBody String helpDetails) throws Exception {
+        return helpService.addHelp(helpDetails);
+    }
 
     // Mailer Controller
     @PostMapping("/mail/send")

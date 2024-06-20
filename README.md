@@ -11,6 +11,7 @@
 5. /user/emails
 6. /card/design/{id}
 7. /card/design
+8. /card/features
 
 ### Post Endpoints
 1. /user/add
@@ -18,6 +19,7 @@
 3. /card/design/add
 4. /socialmedia/add
 5. /user/address/add
+6. /help/add
 
 ## Tables
 > need to create tables (Database: cardx)
@@ -27,6 +29,8 @@
 4. socialmediarequest
 5. carddesign
 6. addressrequest
+7. help
+8. helpmessage
 
 ## Technologies
 1. Java
@@ -58,6 +62,9 @@
 ```
 * spring.cache.jcache.config=classpath:ehcache.xml
 ```
+
+### Logging
+``` Location: cardx/logs ```
 
 ## UI - Angular
 > https://github.com/daksh23/Card-X-UI

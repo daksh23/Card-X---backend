@@ -45,6 +45,9 @@ public class Repository implements RepositoryInterface {
         return "select * from carddesigns";
     }
 
+    public String getFeatures(){
+        return "select * from features";
+    }
 
      /*
      * Add Data
@@ -85,5 +88,14 @@ public class Repository implements RepositoryInterface {
                 "VALUES (?, ?, ?, ?, ?, ?)";
     }
 
+    @Transactional
+    public String addHelp(){
+        return "INSERT INTO help (userName, email, phoneNumber, subject, question, help_image) VALUES (?, ?, ?, ?, ?, ?)";
+    }
+
+    @Transactional
+    public String addHelpMessages(){
+        return "INSERT INTO helpmessage (help_ref_id, email, subject, question, help_image) VALUES (?, ?, ?, ?, ?)";
+    }
 
 }
