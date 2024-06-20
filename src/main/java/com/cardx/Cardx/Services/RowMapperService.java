@@ -2,6 +2,7 @@ package com.cardx.Cardx.Services;
 
 import com.cardx.Cardx.Helper.Constants;
 import com.cardx.Cardx.Model.Request.*;
+import com.cardx.Cardx.Model.Response.FeaturesResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.jdbc.core.RowMapper;
@@ -62,7 +63,6 @@ public class RowMapperService {
               user.setUserEmail(rs.getString(Constants.EMAIL));
               return user;
        };
-
        public final RowMapper<CardDesigns> rowCardDesign = (rs, rowNum) -> {
               logger.debug("rowCardDesign: {} ", rs );
               CardDesigns cardDesigns = new CardDesigns();
@@ -76,4 +76,17 @@ public class RowMapperService {
 
               return cardDesigns;
        };
+
+       public final RowMapper<FeaturesResponse> rowFeatures = (rs, rowNum) -> {
+              logger.debug("rowCardDesign: {} ", rs );
+              FeaturesResponse featuresResponse = new FeaturesResponse();
+
+              featuresResponse.setDescription(rs.getString(Constants.FEATURE_DESCRIPTION));
+              featuresResponse.setIcon(rs.getString(Constants.FEATURE_ICON));
+              featuresResponse.setTitle(rs.getString(Constants.FEATURE_TITLE));
+              featuresResponse.setFeature_id(rs.getInt(Constants.FEATURE_ID));
+
+              return featuresResponse;
+       };
+
 }
