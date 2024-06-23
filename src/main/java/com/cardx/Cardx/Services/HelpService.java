@@ -2,7 +2,6 @@ package com.cardx.Cardx.Services;
 
 import com.cardx.Cardx.DAO.Repository;
 import com.cardx.Cardx.Helper.Constants;
-import com.cardx.Cardx.Helper.EventHelper;
 import com.cardx.Cardx.Model.Request.HelpRequest;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -22,8 +21,6 @@ public class HelpService {
     Repository repository;
 
     private final JdbcTemplate jdbcTemplate;
-    @Autowired
-    EventHelper eventHelper;
 
     public HelpService(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
