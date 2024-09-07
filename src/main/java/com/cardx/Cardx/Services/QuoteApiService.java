@@ -50,17 +50,22 @@ public class QuoteApiService {
         HttpEntity <String> entity = new HttpEntity<>(headers);
 
         // Get response from 3rd party Apis
-        String response =  restTemplate.exchange(URL, HttpMethod.GET, entity, String.class).getBody();
+//        String response =  restTemplate.exchange(URL, HttpMethod.GET, entity, String.class).getBody();
 
         // Getting array in json repsonse
-        QuoteApiResponse[] langs = objectMapper.readValue(response, QuoteApiResponse[].class);
+        QuoteApiResponse[] langs = objectMapper.readValue("[]", QuoteApiResponse[].class);
         List<QuoteApiResponse> langList = new ArrayList(Arrays.asList(langs)); // converted into List from Array
 
-        int indexNum = randomNumberGenerator(langList.size()); // Generating random number
+        if(langList.size() > 0){
+            int indexNum = randomNumberGenerator(langList.size()); // Generating random number
 
-        // set into response with random index from list
-        quoteApiResponse.setText(langList.get(indexNum).getText());
-        quoteApiResponse.setAuthor(langList.get(indexNum).getAuthor());
+            // set into response with random index from list
+            quoteApiResponse.setText(langList.get(indexNum).getText());
+            quoteApiResponse.setAuthor(langList.get(indexNum).getAuthor());
+        }else{
+            quoteApiResponse.setAuthor("CardX");
+            quoteApiResponse.setText("Your Digital Identity, Simplified.");
+        }
 
         return quoteApiResponse;
     }
