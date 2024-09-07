@@ -11,7 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class PersonalInfo {
 
-    private Long userId;
+    private String userId;
 
     private String firstName;
 
@@ -26,8 +26,6 @@ public class PersonalInfo {
     private Address address;
 
     private String image;
-
-    private SocialMedia socialMedia;
 
     private Credentials credentials;
 

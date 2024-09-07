@@ -13,7 +13,7 @@ public class Experience {
 
     private String job;
 
-    private Boolean current;
+    private Boolean present;
 
     private String exStart;
 

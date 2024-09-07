@@ -20,6 +20,9 @@ public class CardxControllers {
     @Autowired
     CardFeaturesService cardFeaturesService;
 
+    @Autowired
+    ValidationDataForUIService validationDataForUIService;
+
     // Extra Endpoints including 3rd Party belows:
     @GetMapping("/welcome")
     public ResponseEntity<String> welcome(){
@@ -35,6 +38,12 @@ public class CardxControllers {
     @GetMapping("/card/features")
     public ResponseEntity<String> getFeatures() throws Exception {
         return ResponseEntity.ok(cardFeaturesService.retrieveFeatures());
+    }
+
+    // Get User Data  - emails
+    @GetMapping("/user/emails")
+    public ResponseEntity<String> getEmails() throws Exception {
+        return ResponseEntity.ok(validationDataForUIService.retrieveEmails());
     }
 
 }

@@ -1,5 +1,6 @@
 package com.cardx.Cardx.Model.Request.user;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,12 +12,18 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class userDetails {
+public class UserDetails {
 
+    @JsonProperty("personalInfo")
     private PersonalInfo personalInfo;
 
+    @JsonProperty("education")
     private List<Education> educations;
 
+    @JsonProperty("experience")
     private  List<Experience> experiences;
+
+    @JsonProperty("socialMedia")
+    private SocialMedia socialMedia;
 
 }
