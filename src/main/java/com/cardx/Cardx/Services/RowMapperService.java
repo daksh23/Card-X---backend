@@ -2,6 +2,8 @@ package com.cardx.Cardx.Services;
 
 import com.cardx.Cardx.Helper.Constants;
 import com.cardx.Cardx.Model.Request.*;
+import com.cardx.Cardx.Model.Request.user.User;
+import com.cardx.Cardx.Model.Request.user.UserDetails;
 import com.cardx.Cardx.Model.Response.EmailResponse;
 import com.cardx.Cardx.Model.Response.FeaturesResponse;
 import org.apache.logging.log4j.LogManager;
@@ -47,6 +49,19 @@ public class RowMapperService {
               emailResponse.setEmail(rs.getString(Constants.EMAIL));
 
               return emailResponse;
+       };
+
+       public final RowMapper<User> rowUser = (rs, rowNum) -> {
+              logger.debug("rowEmail: {} ", rs );
+
+              User user = new User();
+              user.setEmail(rs.getString("email"));
+              user.setUser(rs.getString("user"));
+              user.setUser_id(rs.getString("user_id"));
+              user.setUsername(rs.getString("username"));
+              user.setTimeDate(rs.getString("time"));
+
+              return user;
        };
 
 

@@ -1,5 +1,6 @@
 package com.cardx.Cardx.DAO;
 
+import com.cardx.Cardx.Model.Request.user.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +21,10 @@ public class Repository implements RepositoryInterface {
 
     public String getEmails(){
         return "select email from users";
+    }
+
+    public String getUserByEmail(){
+        return "select * from users where email=?";
     }
 
      /*

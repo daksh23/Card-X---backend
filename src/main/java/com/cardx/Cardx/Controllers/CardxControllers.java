@@ -1,5 +1,6 @@
 package com.cardx.Cardx.Controllers;
 
+import com.cardx.Cardx.Model.Request.AuthRequest;
 import com.cardx.Cardx.Services.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin(origins = "http://localhost:4200") // Specify the allowed origin
 @RestController
@@ -22,6 +24,10 @@ public class CardxControllers {
 
     @Autowired
     ValidationDataForUIService validationDataForUIService;
+
+    @Autowired
+    private AuthenticationService authenticationService;
+
 
     // Extra Endpoints including 3rd Party belows:
     @GetMapping("/welcome")
@@ -44,6 +50,12 @@ public class CardxControllers {
     @GetMapping("/user/emails")
     public ResponseEntity<String> getEmails() throws Exception {
         return ResponseEntity.ok(validationDataForUIService.retrieveEmails());
+    }
+
+    // Login API
+    @PostMapping("/user/login")
+    public ResponseEntity<String> login(@RequestBody AuthRequest authRequest) throws Exception {
+        return authenticationService.login(authRequest.getEmail(), authRequest.getPassword());
     }
 
 }
