@@ -11,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
+import java.util.Objects;
+
 @Component
 public class RegisterUserService {
 
@@ -48,8 +50,16 @@ public class RegisterUserService {
             if(userDetails.getPersonalInfo().getEmail() == null
                     || userDetails.getPersonalInfo().getEmail().isEmpty()
                     || userDetails.getPersonalInfo().getEmail().isBlank()){
-                throw new Exception("Email is null");
-            }else{
+                return ResponseEntity.status(207).body("{'Error':'Registration Fail because of Email.'}");
+            }// Extract passwords from userDetails - and validate its not null and not matched
+            else if (userDetails.getPersonalInfo() == null
+                    || userDetails.getPersonalInfo().getCredentials() == null
+                    || userDetails.getPersonalInfo().getCredentials().getPassword() == null
+                    || userDetails.getPersonalInfo().getCredentials().getConfirmPassword() == null
+                    || !Objects.equals(userDetails.getPersonalInfo().getCredentials().getConfirmPassword(), userDetails.getPersonalInfo().getCredentials().getConfirmPassword())
+            ) {
+                return ResponseEntity.status(207).body("{'Error':'Registration Fail because of passwords not matched.'}");
+            } else{
                 email = userDetails.getPersonalInfo().getEmail();
                 userName = util.extractUserNameFromEmailForProfileImage(email); // mark email first part as userName of that user
                 userDetails.getPersonalInfo().setImage(userName); // set email as image name - ui will update profile image name as email
