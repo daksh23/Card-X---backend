@@ -1,5 +1,7 @@
 package com.cardx.Cardx.Model.Request.user;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,6 +15,7 @@ public class Credentials {
 
     private String password;
 
-    private String confirmPassword;
+    @JsonProperty("confirmPassword")
+    private String recoveryPassword;
 
 }

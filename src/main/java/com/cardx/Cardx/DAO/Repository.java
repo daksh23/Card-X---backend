@@ -47,4 +47,10 @@ public class Repository implements RepositoryInterface {
         return "INSERT INTO helpmessage (help_ref_id, email, subject, question, help_image) VALUES (?, ?, ?, ?, ?)";
     }
 
+    @Transactional
+    public String changePassword() {
+        return "UPDATE users SET user = ? " + "WHERE email = ? ";
+    }
+
+
 }
