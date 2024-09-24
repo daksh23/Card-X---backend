@@ -55,8 +55,7 @@ public class RegisterUserService {
             else if (userDetails.getPersonalInfo() == null
                     || userDetails.getPersonalInfo().getCredentials() == null
                     || userDetails.getPersonalInfo().getCredentials().getPassword() == null
-                    || userDetails.getPersonalInfo().getCredentials().getConfirmPassword() == null
-                    || !Objects.equals(userDetails.getPersonalInfo().getCredentials().getConfirmPassword(), userDetails.getPersonalInfo().getCredentials().getConfirmPassword())
+                    || userDetails.getPersonalInfo().getCredentials().getRecoveryPassword() == null
             ) {
                 return ResponseEntity.status(207).body("{'Error':'Registration Fail because of passwords not matched.'}");
             } else{
