@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com..cardx</groupId>
 	<artifactId>Cardx</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1</version>
 	<name>Cardx</name>
 	<description>Cardx apis</description>
 	<properties>
@@ -156,6 +156,8 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+
+					<finalName>cardx-${version}</finalName>
 				</configuration>
 			</plugin>
 		</plugins>
