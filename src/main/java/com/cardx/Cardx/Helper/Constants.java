@@ -16,6 +16,10 @@ public class Constants {
    public static final String CONTACT = "contact";
    public static final String EMAIL = "email";
 
+   public  static final String USER = "user";
+   public  static final String USER_NAME = "username";
+   public  static final String USER_TIME = "time";
+
    // Request Constants
    public static final String PRODUCT_ID = "product_id";
    public static final String CARD_DESIGN_ID = "card_design_id";
@@ -27,6 +31,7 @@ public class Constants {
    public static final String  DESIGN_COLLECTION = "collection";
 
    public static final String  DESIGN_DMY_USER_NAME = "dmyUserName";
+   public static final String DESIGN_TYPE = "designType";
    public static final String CARD_NAME = "card_name";
    public static final String TYPE_CARD = "type_card";
 

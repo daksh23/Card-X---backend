@@ -30,4 +30,7 @@ public class CardDesigns {
     @JsonProperty("designAmount")
     private String cardDesignAmount;
 
+    @JsonProperty("designType")
+    private String cardDesignType;
+
 }
