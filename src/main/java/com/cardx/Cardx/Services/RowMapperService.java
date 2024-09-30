@@ -11,6 +11,8 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
+import static com.cardx.Cardx.Helper.Constants.EMAIL;
+
 @Component
 public class RowMapperService {
 
@@ -26,6 +28,7 @@ public class RowMapperService {
               cardDesigns.setCardDesignCollection(rs.getString(Constants.DESIGN_COLLECTION));
               cardDesigns.setCardDesignImage(rs.getString(Constants.DESIGN_IMAGE));
               cardDesigns.setDmyUserName(rs.getString(Constants.DESIGN_DMY_USER_NAME));
+              cardDesigns.setCardDesignType(rs.getString(Constants.DESIGN_TYPE));
 
               return cardDesigns;
        };
@@ -55,11 +58,11 @@ public class RowMapperService {
               logger.debug("rowEmail: {} ", rs );
 
               User user = new User();
-              user.setEmail(rs.getString("email"));
-              user.setUser(rs.getString("user"));
-              user.setUser_id(rs.getString("user_id"));
-              user.setUsername(rs.getString("username"));
-              user.setTimeDate(rs.getString("time"));
+              user.setEmail(rs.getString(Constants.EMAIL));
+              user.setUser(rs.getString(Constants.USER));
+              user.setUser_id(rs.getString(Constants.USER_ID));
+              user.setUsername(rs.getString(Constants.USER_NAME));
+              user.setTimeDate(rs.getString(Constants.USER_TIME));
 
               return user;
        };
