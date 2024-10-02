@@ -68,3 +68,7 @@
 
 ## UI - Angular
 > https://github.com/daksh23/Card-X-UI
+
+
+## Database - sql file.
+> Find in SQL-File-backup branch
