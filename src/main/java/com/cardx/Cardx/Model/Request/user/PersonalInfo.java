@@ -13,6 +13,8 @@ public class PersonalInfo {
 
     private String userId;
 
+    private String userName;
+
     private String firstName;
 
     private String lastName;

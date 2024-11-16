@@ -27,6 +27,10 @@ public class Repository implements RepositoryInterface {
         return "select * from users where email=?";
     }
 
+    public String getUserByUserName(){
+        return "select * from users where username=?";
+    }
+
      /*
      * Add Data
      * Apis
@@ -35,6 +39,11 @@ public class Repository implements RepositoryInterface {
     public String registerUser() {
         return "INSERT INTO users (user_id, username, email, user, time) " +
                 "VALUES ( ?, ?, ?, ?, ? )";
+    }
+
+    @Transactional
+    public String updateUserDetailsJson() {
+        return " UPDATE users SET user=? WHERE userName=? ";
     }
 
     @Transactional
@@ -48,9 +57,8 @@ public class Repository implements RepositoryInterface {
     }
 
     @Transactional
-    public String changePassword() {
+    public String updateUserJson() {
         return "UPDATE users SET user = ? " + "WHERE email = ? ";
     }
-
 
 }

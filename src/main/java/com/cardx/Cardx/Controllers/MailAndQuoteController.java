@@ -3,9 +3,13 @@ package com.cardx.Cardx.Controllers;
 
 import com.cardx.Cardx.Model.Response.QuoteApiResponse;
 import com.cardx.Cardx.Services.EmailerService;
+import com.cardx.Cardx.Services.ProfileService;
 import com.cardx.Cardx.Services.QuoteApiService;
+import com.cardx.Cardx.Services.UploadProfile;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +31,9 @@ public class MailAndQuoteController {
     @Autowired
     QuoteApiService quoteApiService;
 
+    @Autowired
+    UploadProfile uploadProfile;
+
     private ObjectMapper objectMapper = new ObjectMapper();
 
     // Mailer Controller
@@ -44,22 +51,10 @@ public class MailAndQuoteController {
     }
 
     // Upload Profile Image - User
-    @PostMapping("/upload")
-    public String uploadProfileImage(@RequestParam("file") MultipartFile file) throws JsonProcessingException {
-            String uploadDir = "C:/Users/Daksh/OneDrive/Desktop/Projects/Card-X-UI/src/assets/profile";
-//        String uploadDir = "/src/resources";
-        File uploadFolder = new File(uploadDir);
+    @PostMapping(value="/upload")
+    public String uploadProfileImage(@RequestParam("file") MultipartFile file, String fileName) throws JsonProcessingException {
+        return uploadProfile.uploadProfile(file, fileName);
 
-            if (!uploadFolder.exists()) {
-                uploadFolder.mkdirs();
-            }
 
-            try {
-                Files.write(Paths.get(uploadDir, file.getOriginalFilename()), file.getBytes());
-                return "File uploaded successfully: " + file.getOriginalFilename();
-            } catch (IOException e) {
-                e.printStackTrace();
-                return "File upload failed: " + e.getMessage();
-            }
     }
 }
