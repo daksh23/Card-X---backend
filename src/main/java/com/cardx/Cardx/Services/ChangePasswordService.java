@@ -63,7 +63,7 @@ public class ChangePasswordService {
                 userDetails.getPersonalInfo().getCredentials().setRecoveryPassword(currentPassword); // Backup last password for user
 
                 userDetailsJson = mapper.writeValueAsString(userDetails);
-                String sql = repository.changePassword(); // updated user details with new password
+                String sql = repository.updateUserJson(); // updated user details with new password
 
                 int rowsAffected = jdbcTemplate.update(sql, userDetailsJson, email);
 

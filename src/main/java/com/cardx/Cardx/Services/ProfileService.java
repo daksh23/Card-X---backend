@@ -38,7 +38,7 @@ public class ProfileService {
 
 
     public ResponseEntity<String> retrieveProfileInformation(String email){
-
+        logger.debug("retrieveProfileInformation :: Email :: " + email);
         String getUserLoginDetailsSql = repository.getUserByEmail();
         User user = null;
         String userDetailsJson = null;
