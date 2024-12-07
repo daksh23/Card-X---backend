@@ -26,4 +26,7 @@ public class UserDetails {
     @JsonProperty("socialMedia")
     private SocialMedia socialMedia;
 
+    @JsonProperty("orderList")
+    private List<OrderList> orderList;
+
 }

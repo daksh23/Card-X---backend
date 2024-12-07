@@ -42,6 +42,12 @@ public class Repository implements RepositoryInterface {
     }
 
     @Transactional
+    public String addOrder() {
+        return "INSERT INTO orders (order_id, payer_id, payment_id, payment_details, cardDesign, time_date, username) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?)";
+    }
+
+    @Transactional
     public String updateUserDetailsJson() {
         return " UPDATE users SET user=? WHERE userName=? ";
     }
