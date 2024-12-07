@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins = "http://localhost:4200") // Specify the allowed origin
 @RestController
-@RequestMapping("cardx/rest/v1/health")
+@RequestMapping("cardx/rest/v1")
 public class HealthStatusController {
 
     // Health status endpoint
-    @GetMapping("/status")
-    public ResponseEntity<String> health(){
-        return ResponseEntity.ok().body(" Card-x backend service is working as expected....!!!!");
+    @GetMapping("/health/status")
+    public ResponseEntity health(){
+        return ResponseEntity.ok().build();
     }
 
 }
