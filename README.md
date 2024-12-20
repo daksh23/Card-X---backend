@@ -66,6 +66,9 @@
 ### Logging
 ``` Location: cardx/logs ```
 
+### Upload Images - Profile Picture
+``` Angular asset directory path required as user.profile.image.location== in cardx.properties file```
+
 ## UI - Angular
 > https://github.com/daksh23/Card-X-UI
 

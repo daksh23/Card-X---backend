@@ -161,10 +161,12 @@ public class PaypalPaymentService {
                 order.setCardDesigns(cardDesign);
                 order.setDateTime(timeDate);
 
-                if(!userDetails.getOrderList().isEmpty()){
-                     userDetails.getOrderList().add(order);
-                }else{
+                List<OrderList> orderList = userDetails.getOrderList();
+
+                if(orderList == null || orderList.isEmpty() ){
                     userDetails.setOrderList(Collections.singletonList(order));
+                }else{
+                    userDetails.getOrderList().add(order);
                 }
             }
 

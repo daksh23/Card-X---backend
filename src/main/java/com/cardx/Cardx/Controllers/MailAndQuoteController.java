@@ -3,22 +3,14 @@ package com.cardx.Cardx.Controllers;
 
 import com.cardx.Cardx.Model.Response.QuoteApiResponse;
 import com.cardx.Cardx.Services.EmailerService;
-import com.cardx.Cardx.Services.ProfileService;
 import com.cardx.Cardx.Services.QuoteApiService;
 import com.cardx.Cardx.Services.UploadProfile;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 @CrossOrigin(origins = "http://localhost:4200") // Specify the allowed origin
 @RestController
