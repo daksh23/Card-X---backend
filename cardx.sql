@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 03, 2024 at 01:03 AM
+-- Generation Time: Dec 20, 2024 at 07:57 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,15 +42,15 @@ CREATE TABLE `carddesigns` (
 --
 
 INSERT INTO `carddesigns` (`design_id`, `designName`, `image`, `collection`, `dmyUserName`, `designAmount`, `designType`) VALUES
-(1, 'Dark Moon', 'assets/card-design/weekly/card1.jpg', 'weekly', 'Mark Wood', 0, 'standard'),
-(2, 'And Breathe', 'assets/card-design/weekly/card2.jpg', 'weekly', 'Mark zark', 0, 'advanced'),
-(3, 'Live work create', 'assets/card-design/weekly/card3.jpg', 'weekly', 'Wood', 0, 'advanced'),
-(4, 'who i am', 'assets/card-design/weekly/card4.jpg', 'weekly', 'Will', 0, 'premium'),
-(5, 'dogs and line', 'assets/card-design/weekly/card5.jpg', 'weekly', 'Charles', 0, 'premium'),
-(6, 'math shapes', 'assets/card-design/weekly/card6.jpg', 'weekly', 'steve jobs', 0, 'standard'),
-(7, 'Ironman', 'assets/card-design/alltime/card1.jpg', 'all-time', 'Wood', 0, 'advanced'),
-(8, 'Cat girl', 'assets/card-design/alltime/card2.jpg', 'all-time', 'zark', 0, 'standard'),
-(9, 'I am thanos', 'assets/card-design/alltime/card3.jpg', 'all-time', 'Steve', 0, 'premium');
+(1, 'Dark Moon', 'assets/card-design/weekly/card1.jpg', 'weekly', 'Mark Wood', 5, 'standard'),
+(2, 'And Breathe', 'assets/card-design/weekly/card2.jpg', 'weekly', 'Mark zark', 11, 'advanced'),
+(3, 'Live work create', 'assets/card-design/weekly/card3.jpg', 'weekly', 'Wood', 25, 'advanced'),
+(4, 'who i am', 'assets/card-design/weekly/card4.jpg', 'weekly', 'Will', 40, 'premium'),
+(5, 'dogs and line', 'assets/card-design/weekly/card5.jpg', 'weekly', 'Charles', 45, 'premium'),
+(6, 'math shapes', 'assets/card-design/weekly/card6.jpg', 'weekly', 'steve jobs', 2, 'standard'),
+(7, 'Ironman', 'assets/card-design/alltime/card1.jpg', 'all-time', 'Wood', 20, 'advanced'),
+(8, 'Cat girl', 'assets/card-design/alltime/card2.jpg', 'all-time', 'zark', 3, 'standard'),
+(9, 'I am thanos', 'assets/card-design/alltime/card3.jpg', 'all-time', 'Steve', 50, 'premium');
 
 -- --------------------------------------------------------
 
@@ -123,13 +123,6 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`user_id`, `username`, `email`, `user`, `time`) VALUES
-('3501fe80-d23b-4662-b311-c0816cdaa399', 'dax', 'dax@gmail.com', '{\"personalInfo\":{\"userId\":\"3501fe80-d23b-4662-b311-c0816cdaa399\",\"firstName\":\"das\",\"lastName\":\"asd\",\"email\":\"dax@gmail.com\",\"phone\":\"123453443\",\"bio\":\"dfads\",\"address\":{\"city\":\"ads\",\"state\":\"ASD\",\"country\":\"ASD\"},\"image\":\"dax\",\"credentials\":{\"password\":\"asd\",\"confirmPassword\":\"asd\"}},\"education\":[{\"study\":\"\",\"current\":false,\"eduStart\":\"\",\"eduEnd\":\"\",\"university\":\"\",\"uniCountry\":\"\",\"uniState\":\"\"}],\"experience\":[{\"job\":\"\",\"present\":false,\"exStart\":\"\",\"exEnd\":\"\",\"companyName\":\"\"}],\"socialMedia\":{\"linkedIn\":\"https://x.com\",\"x\":\"https://x.com\",\"instagram\":\"https://x.com\"}}', '14-09-2024 23:06:18');
-
---
 -- Indexes for dumped tables
 --
 
@@ -184,7 +177,7 @@ ALTER TABLE `features`
 -- AUTO_INCREMENT for table `help`
 --
 ALTER TABLE `help`
-  MODIFY `help_id` int(40) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `help_id` int(40) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
